@@ -2,19 +2,27 @@ class Table < ActiveRecord::Migration
 
   def change
 
-    create_table :artist do |t|
+    create_table :artists do |t|
+      t.string :name
+      
+    end
+
+
+    create_table :genres do |t|
       t.string :name
     end
 
 
-    create_table :genre do |t|
+    create_table :songs do |t|
       t.string :name
+      t.integer :artist_id
     end
 
-
-    create_table :song do |t|
-      t.string :name
+    create_table :song_genres do |t|
+      t.integer:genre_id
+      t.integer:song_id
     end
+
 
   end
 
