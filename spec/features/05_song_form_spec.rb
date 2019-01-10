@@ -41,6 +41,9 @@ describe "Song Forms" do
         fill_in "Artist Name", with: artist_name
         click_on "Create"
         expect(page.current_path).to eq('/songs/that-one-with-the-guitar')
+        
+
+        
       end
     end
 
@@ -85,7 +88,7 @@ describe "Song Forms" do
       @song = Song.create(name: song_name)
       artist = Artist.create(name: artist_name)
 
-      @song.song_genres.create(genre: genre_1)
+      @song.genre_songs.create(genre: genre_1)
       @song.artist = artist
 
       @song.save
