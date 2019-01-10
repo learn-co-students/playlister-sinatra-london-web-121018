@@ -10,6 +10,5 @@ class GenresController < ApplicationController
       @genre = Genre.find_by_slug(params[:slug])
       #binding.pry
       erb :"genre/show"
-     
-  end
+    end
 end

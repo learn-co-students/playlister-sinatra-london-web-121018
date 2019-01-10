@@ -4,8 +4,8 @@ class Artist < ActiveRecord::Base
 
 
   def slug
-    name = self.name.gsub!(/[^0-9A-Za-z]/, ' ')
-
+    name = self.name.gsub(/[^0-9A-Za-z ]/, '')
+    #binding.pry
     name ? name.downcase.gsub(" ", "-") : self.name
   end
 
