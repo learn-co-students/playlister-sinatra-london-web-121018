@@ -3,7 +3,7 @@
 
 <% @songs.each do |song|%>
 <%# <%binding.pry%> %>
-<P>
+<li>
 <a href= "song/<%=song.slug%>"><%= song.name%></a>
-
+</li>
 <%end%>

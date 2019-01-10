@@ -6,14 +6,11 @@ class Artist < ActiveRecord::Base
   def slug
     name = self.name.gsub!(/[^0-9A-Za-z]/, ' ')
 
-    name.downcase.gsub(" ", "-")
+    name ? name.downcase.gsub(" ", "-") : self.name
   end
 
   def self.find_by_slug(slug)
-    slugish = slug.gsub("-", " ").split
-    name = slugish.map {|n| n.capitalize}.join(" ")
-    Artist.find_by(name: name)
-
+    Artist.all.find{|song| song.slug == slug}
   end
 
 end

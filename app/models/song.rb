@@ -10,10 +10,7 @@ class Song < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    slugish = slug.gsub("-", " ").split
-    name = slugish.map {|n| n.capitalize}.join(" ")
-    binding.pry
-    Song.find_by(name: name)
+    Song.all.find{|song| song.slug == slug}
   end
 
 
