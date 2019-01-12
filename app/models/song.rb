@@ -5,8 +5,8 @@ class Song < ActiveRecord::Base
 
   def slug
     #binding.pry
-    self.name.gsub(/[^0-9A-Za-z ]/, '').downcase.gsub(" ", "-")
-    #slugged_song_name ? slugged_song_name.downcase.gsub(" ", "-") : self.name
+    slugged = self.name.gsub(/[^0-9A-Za-z ]/, '')
+    slugged ? slugged.downcase.gsub(" ", "-") : self.name
   end
 
   def self.find_by_slug(slug)
